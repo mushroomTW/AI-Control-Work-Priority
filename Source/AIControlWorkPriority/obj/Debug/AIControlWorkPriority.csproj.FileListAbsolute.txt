@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Assemblies\AIControlWorkPriority.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Assemblies\AIControlWorkPriority.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.pdb

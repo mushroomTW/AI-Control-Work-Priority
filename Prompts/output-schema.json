@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorkPriorityPlan",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "調度決策的簡短摘要說明。"
+    },
+    "alerts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "系統提醒或缺口警告，例如：'缺少合格的廚師'、'研究速度過慢'。"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pawnId": {
+            "type": "string",
+            "description": "殖民者的 ThingIDNumber (例如：'Pawn_Colonist1')"
+          },
+          "workTypeDefName": {
+            "type": "string",
+            "description": "工作類型的 defName (例如：'Doctor', 'Cooking')"
+          },
+          "priority": {
+            "type": "integer",
+            "description": "優先級值 (1=最高, 4=最低)"
+          },
+          "reason": {
+            "type": "string",
+            "description": "調整此項優先級的簡短理由。"
+          }
+        },
+        "required": ["pawnId", "workTypeDefName", "priority"]
+      },
+      "description": "需要調整的優先級變更清單。"
+    }
+  },
+  "required": ["summary", "alerts", "changes"]
+}

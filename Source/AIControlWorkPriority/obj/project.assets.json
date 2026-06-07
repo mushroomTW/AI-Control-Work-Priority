@@ -138,7 +138,7 @@
           }
         },
         "runtime": {
-          "lib/net45/_._": {
+          "lib/net45/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         }
@@ -365,11 +365,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\AI控制工作優先級\\Source\\AIControlWorkPriority\\AIControlWorkPriority.csproj",
+      "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\AI控制工作優先級\\Source\\AIControlWorkPriority\\AIControlWorkPriority.csproj",
       "projectName": "AIControlWorkPriority",
-      "projectPath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\AI控制工作優先級\\Source\\AIControlWorkPriority\\AIControlWorkPriority.csproj",
+      "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\AI控制工作優先級\\Source\\AIControlWorkPriority\\AIControlWorkPriority.csproj",
       "packagesPath": "C:\\Users\\mushroomMaster\\.nuget\\packages\\",
-      "outputPath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\AI控制工作優先級\\Source\\AIControlWorkPriority\\obj\\",
+      "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\AI控制工作優先級\\Source\\AIControlWorkPriority\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mushroomMaster\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -417,7 +417,6 @@
             "version": "[2.4.2, )"
           },
           "Newtonsoft.Json": {
-            "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "target": "Package",
             "version": "[13.0.4, )"
           }

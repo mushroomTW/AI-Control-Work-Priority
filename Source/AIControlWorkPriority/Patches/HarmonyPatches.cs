@@ -12,18 +12,18 @@ namespace AIControlWorkPriority
     public static class Patch_WidgetsWork_DrawWorkBoxFor
     {
         [HarmonyPostfix]
-        public static void Postfix(Vector2 topLeft, Pawn pawn, WorkTypeDef workDef, bool disabled)
+        public static void Postfix(float x, float y, Pawn p, WorkTypeDef wType, bool incapableBecauseOfCapacities)
         {
-            if (pawn == null || workDef == null || disabled) return;
+            if (p == null || wType == null || incapableBecauseOfCapacities) return;
 
             // 格子的 Rect (RimWorld 原版工作格大小通常是 25x25)
-            Rect rect = new Rect(topLeft.x, topLeft.y, 25f, 25f);
-            string pawnId = pawn.ThingID;
+            Rect rect = new Rect(x, y, 25f, 25f);
+            string pawnId = p.ThingID;
 
             var stateStore = AIControlStateStore.GetInstance();
             if (stateStore == null) return;
 
-            bool isManaged = stateStore.IsManaged(pawnId, workDef.defName);
+            bool isManaged = stateStore.IsManaged(pawnId, wType.defName);
 
             // 1. 視覺標示：若是 AI 託管，覆蓋一層精緻的半透明淡藍色與細邊框
             if (isManaged)
@@ -45,13 +45,13 @@ namespace AIControlWorkPriority
             TooltipHandler.TipRegion(rect, new TipSignal(tipText, rect.GetHashCode()));
 
             // 3. 玩家左鍵點擊修改時，自動切回手動鎖定
-            // 只要偵測到玩家在該格按下滑鼠左鍵或使用滾輪滾動，即代表玩家正在手動介入
+            // 只要偵測到玩家在該格按下滑鼠左鍵，即代表玩家正在手動介入
             if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(rect))
             {
                 if (isManaged)
                 {
-                    stateStore.SetManaged(pawnId, workDef.defName, false);
-                    Messages.Message($"{pawn.LabelShort} 的 {workDef.labelShort} 已切換為手動鎖定。", MessageTypeDefOf.CautionInput, false);
+                    stateStore.SetManaged(pawnId, wType.defName, false);
+                    Messages.Message($"{p.LabelShort} 的 {wType.labelShort} 已切換為手動鎖定。", MessageTypeDefOf.CautionInput, false);
                 }
             }
 
@@ -65,16 +65,16 @@ namespace AIControlWorkPriority
                 {
                     options.Add(new FloatMenuOption("切換為手動控制", () =>
                     {
-                        stateStore.SetManaged(pawnId, workDef.defName, false);
-                        Messages.Message($"{pawn.LabelShort} 的 {workDef.labelShort} 已切換為手動控制。", MessageTypeDefOf.CautionInput, false);
+                        stateStore.SetManaged(pawnId, wType.defName, false);
+                        Messages.Message($"{p.LabelShort} 的 {wType.labelShort} 已切換為手動控制。", MessageTypeDefOf.CautionInput, false);
                     }));
                 }
                 else
                 {
                     options.Add(new FloatMenuOption("交由 AI 託管", () =>
                     {
-                        stateStore.SetManaged(pawnId, workDef.defName, true);
-                        Messages.Message($"{pawn.LabelShort} 的 {workDef.labelShort} 已交由 AI 託管。", MessageTypeDefOf.PositiveEvent, false);
+                        stateStore.SetManaged(pawnId, wType.defName, true);
+                        Messages.Message($"{p.LabelShort} 的 {wType.labelShort} 已交由 AI 託管。", MessageTypeDefOf.PositiveEvent, false);
                     }));
                 }
                 

@@ -8,11 +8,19 @@
     <Deterministic>true</Deterministic>
     <LangVersion>latest</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.4.2" ExcludeAssets="runtime" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" ExcludeAssets="runtime" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4633" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RimLLM Framework">
+      <HintPath>..\..\..\RimLLM Framework\Assemblies\RimLLM Framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 </Project>

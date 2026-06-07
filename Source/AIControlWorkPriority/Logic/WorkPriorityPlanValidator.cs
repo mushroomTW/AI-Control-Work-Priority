@@ -20,11 +20,11 @@ namespace AIControlWorkPriority
                 return false;
             }
 
-            // 1. 解析 pawnId
-            string pawnId = change["pawnId"]?.ToString();
+            // 1. 解析 pawnId (容錯: pawnId, PawnId, pawn_id)
+            string pawnId = change["pawnId"]?.ToString() ?? change["PawnId"]?.ToString() ?? change["pawn_id"]?.ToString();
             if (string.IsNullOrEmpty(pawnId))
             {
-                errorReason = "變更變量缺少 pawnId";
+                errorReason = "變更項缺少 pawnId";
                 return false;
             }
 
@@ -41,11 +41,11 @@ namespace AIControlWorkPriority
                 return false;
             }
 
-            // 2. 解析 workTypeDefName
-            string workTypeName = change["workTypeDefName"]?.ToString();
+            // 2. 解析 workTypeDefName (容錯: workTypeDefName, WorkTypeDefName, work_type_def_name, workType, WorkType, work_type)
+            string workTypeName = change["workTypeDefName"]?.ToString() ?? change["WorkTypeDefName"]?.ToString() ?? change["work_type_def_name"]?.ToString() ?? change["workType"]?.ToString() ?? change["WorkType"]?.ToString() ?? change["work_type"]?.ToString();
             if (string.IsNullOrEmpty(workTypeName))
             {
-                errorReason = "變更變量缺少 workTypeDefName";
+                errorReason = "變更項缺少 workTypeDefName";
                 return false;
             }
 
@@ -63,8 +63,8 @@ namespace AIControlWorkPriority
                 return false;
             }
 
-            // 4. 解析 priority
-            var priorityToken = change["priority"];
+            // 4. 解析 priority (容錯: priority, Priority, priority_value)
+            var priorityToken = change["priority"] ?? change["Priority"] ?? change["priority_value"];
             if (priorityToken == null || !int.TryParse(priorityToken.ToString(), out priority))
             {
                 errorReason = "priority 欄位缺失或並非整數";

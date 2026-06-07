@@ -5,3 +5,5 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Assemblies\AIControlWorkPriority.pdb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIControlWorkPriority.sourcelink.json
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AI控制工作優先級\Source\AIControlWorkPriority\obj\Debug\AIContro.F80A1E50.Up2Date

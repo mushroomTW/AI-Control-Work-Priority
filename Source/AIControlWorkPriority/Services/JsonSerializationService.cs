@@ -45,13 +45,32 @@ namespace AIControlWorkPriority
             try
             {
                 if (string.IsNullOrEmpty(json)) return null;
-                return JObject.Parse(json);
+                string cleaned = CleanJsonString(json);
+                return JObject.Parse(cleaned);
             }
             catch (Exception ex)
             {
-                Log.Error("[AIControlWorkPriority] JObject 解析失敗: " + ex);
+                Log.Error("[AIControlWorkPriority] JObject 解析失敗: " + ex + "\n原始回傳內容:\n" + json);
                 return null;
             }
+        }
+
+        public static string CleanJsonString(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+
+            string cleaned = input.Trim();
+
+            // 尋找第一個大括號與最後一個大括號，精準擷取中間的 JSON 物件
+            int firstBrace = cleaned.IndexOf('{');
+            int lastBrace = cleaned.LastIndexOf('}');
+
+            if (firstBrace != -1 && lastBrace != -1 && lastBrace > firstBrace)
+            {
+                return cleaned.Substring(firstBrace, lastBrace - firstBrace + 1);
+            }
+
+            return cleaned;
         }
     }
 }
